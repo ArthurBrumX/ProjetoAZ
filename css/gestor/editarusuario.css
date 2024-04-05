@@ -1,0 +1,406 @@
+/*TELAS CADASTROS*/
+.div-form-editar-usuario{
+  width: calc(100% - 250px);
+  height: calc(100% - 100px);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.form-editar-usuario{
+  height: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.editUser {
+  height: 600px;
+  width: 450px;
+  z-index: 2; 
+  background: rgb(23, 61, 87);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+   
+  }
+  /*tela de cadastro usuário*/
+  .textos{
+    margin-top: 50px;
+  }
+  .caixa-input {
+    position: relative;
+    top: -8%; /*distancia entre os inputs caso um em cima do*/
+    display: flex;
+  }
+  /* Característica do input */
+  .caixa-input .input {
+    font-size: 14px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 800px;
+    border: none;
+    border-bottom: 2px solid rgb(213, 90, 59);
+    background: transparent;
+    font-family: "Tomorrow", sans-serif;
+  }
+  .caixa-input .input:focus {
+    outline: none;
+  }
+  /*Nomes das linhas*/
+  .caixa-input .label {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: "Tomorrow", sans-serif;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
+  }
+  .caixa-input .label-letra {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * 0.05s);
+  }
+  .caixa-input .input:focus ~ label .label-letra,
+  .caixa-input .input:valid ~ label .label-letra {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: rgb(215, 91, 54);
+    text-transform: uppercase;
+  }
+  .caixa-input .barra {
+    position: relative;
+    display: block;
+    width: 200px;
+  }
+  .caixa-input .barra:before,
+  .caixa-input .barra:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  .caixa-input .barra:before {
+    left: 50%;
+  }
+  .caixa-input .barra:after {
+    right: 50%;
+  }
+  .caixa-input .input:focus ~ .barra:before,
+  .caixa-input .input:focus ~ .barra:after {
+    width: 50%;
+  }
+  /* Fim Input com Span Subindo */
+  /*botões*/
+  .radio-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    margin-top: 10px;
+  }
+  .option {
+    position: relative;
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  .botaop {
+    /* background-color: gold;*/
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .botaop :hover {
+    background-color: rgb(213, 90, 59);
+  }
+  .btncancelar {
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+    height: 33px;
+    border: none;
+    border-radius: 32px;
+    background: rgb(10, 35, 52);
+    color: white;
+    font-size: 12px;
+    transition: all 0.3s ease-in-out;
+  }
+  .btncancelar:hover {
+    color: rgb(10, 35, 52);
+    background-color: white;
+  }
+  #cancelar {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .caixa-input {
+    position: relative;
+    margin-top: 30px; /*distancia entre os inputs caso um em cima do*/
+    display: flex;
+    margin-left: 40px;
+  }
+  /* Característica do input */
+  .caixa-input .input {
+    font-size: 14px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 800px;
+    border: none;
+    border-bottom: 2px solid rgb(213, 90, 59);
+    background: transparent;
+    font-family: "Tomorrow", sans-serif;
+  }
+  .caixa-input .input:focus {
+    outline: none;
+  }
+  /* cor do texto escrito */
+  .input {
+    color: white;
+  }
+  /*Nomes das linhas*/
+  .caixa-input .label {
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: "Tomorrow", sans-serif;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
+  }
+  .caixa-input .label-letra {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * 0.05s);
+  }
+  .caixa-input .input:focus ~ label .label-letra,
+  .caixa-input .input:valid ~ label .label-letra {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: rgb(215, 91, 54);
+  }
+  .caixa-input .barra {
+    position: relative;
+    display: block;
+    width: 100px;
+  }
+  .caixa-input .barra:before,
+  .caixa-input .barra:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  .caixa-input .barra:before {
+    left: 50%;
+  }
+  .caixa-input .barra:after {
+    right: 50%;
+  }
+  .caixa-input .input:focus ~ .barra:before,
+  .caixa-input .input:focus ~ .barra:after {
+    width: 50%;
+  }
+  /* Fim Input com Span Subindo */
+  /*botões*/
+  .radio-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    margin: 10px 40px;
+    top: -45px;
+  }
+  .checkbox {
+    width: 110px;
+    height: 30px;
+    background-color: rgb(79, 173, 144);
+    border-radius: 30px;
+    position: relative;
+    color: black;
+    overflow: hidden;
+    z-index: 10;
+    display: flex;
+    margin: auto;
+  }
+  /*o botão seletor ativo*/
+  #checkbox_toggle {
+    display: none;
+  }
+  /*bt ativo*/
+  .checkbox .toggle {
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    border-radius: 25px;
+    left: 0px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0px 0px 10px rgb(0, 36, 54), 0px 0px 30px rgb(0, 36, 54);
+  }
+  .checkbox .slide {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+  }
+  .checkbox .slide .text {
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 20px;
+  }
+  /*bt inativo*/
+  .check:checked + .checkbox .slide .toggle {
+    transform: translateX(55px);
+    background: linear-gradient(40deg, rgb(215, 91, 54) 70%);
+    width: 100px;
+    height: 30px;
+  }
+  .check:checked + .checkbox .slide {
+    background-color: rgb(215, 91, 54);
+    color: white;
+  }
+  /*botões*/
+  .botaop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: -15px;
+  }
+  .btncads:hover {
+    background-color: white;
+    color: rgb(215, 91, 54);
+  }
+  .btncads {
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 32px;
+    background: rgb(215, 91, 54);
+    color: white;
+    font-size: 12px;
+  }
+  .textoradio {
+    color: white;
+  }
+  .text {
+    padding: 10px;
+  }
+  .check {
+    padding: 17px 40px;
+    border-radius: 50px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+  }
+  .check:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+  }
+  .check:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+  }
+  /*foto pré visualização*/
+  .foto {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 20px;
+    color: white;
+    margin-top: -8%;
+  }
+  .pre-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .sfoto {
+    display: flex;
+    flex-direction: row;
+  }
+  #output {
+    width: 80px;
+    height: 80px;
+  }
+  
+  
+  /*Configurações do Site Responsivo*/
+  @media only screen and (max-width: 768px)
+  {
+  .div-form-editar-usuario{
+    height: 80%;
+    min-width: 70vw;
+    left: 25%;
+    position: absolute;
+    top:15%;
+    transform: none;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .editUser{
+    width: 70%;
+    margin: 0 10px;
+  }
+  .caixa-input {
+    position: relative;
+    top: -15%; /*distancia entre os inputs caso um em cima do*/
+    display: flex;
+    
+  }
+  .foto {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 20px;
+    color: white;
+    margin: 0;
+    margin-top: -15%;
+  }
+  .botaop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: -40px;
+  }
+  
+  }

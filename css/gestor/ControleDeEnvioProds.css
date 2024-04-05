@@ -1,0 +1,200 @@
+:root{
+    /*Cores*/
+    --cor-fundo-menu: rgb(0, 36, 54);
+    --cor-laranja-az: rgb(239, 78, 35);
+    /*Transições*/
+    --tran-menu: 0.5s all ease;
+    /*Tamanho de fontes*/
+    --tamanho-fonte-titulo-tela: 20px;
+    --tamanho-fonte-span-input: 16px;
+    --tamanho-fonte-titulo-card: 18px;
+    --escrita-cliente-tamanho-fonte-texto-input: 14px;
+    /* Paleta de cores AZ */
+    --cor-branca-para-fundos-escuros: rgb(255,255,255);
+    --cor-laranja-fraco-para-texto: rgb(215, 91, 54);
+    --cor-azul-escuro-para-caixas-dentro-site: rgb(23,61,87);
+    --cor-azul-escuro-para-fundos-site: rgb(0,36,54);
+    --cor-cinza-apagado: rgba(217, 217, 217, 0.30);
+    --cor-cinza: rgb(217,217,217);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tomorrow', serif;
+}
+
+.body{
+    width: 100vw;
+    height: 75%;
+    /* margin-left: 25%; */
+}
+
+.NomeDaTela{
+    height: auto;
+    width: 1600PX;
+    background-color: transparent;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 15px 0px 15px 100px;
+}
+
+/* Botão link entre as telas "PENDENTE" e "ENVIADO" */
+#btn_link{
+    height: 40px;
+    width: auto;
+    padding: 1%;
+    background-color: var(--cor-azul-escuro-para-caixas-dentro-site);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid #333;
+}
+
+/**/
+.direcionador-enviados{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#btn_link:hover .direcionador-enviados{
+    color: var(--cor-laranja-az);
+}
+
+/* Botão link entre as telas "PENDENTE" e "ENVIADO"  -  HOVER */
+#btn_link:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 25px;
+    border: 2px solid black;
+}
+
+/* Formatação geral da tabela */
+.listaProdutosEnvio{
+    background-color: blanchedalmond;
+    height: auto;
+    width: 1600px;
+    margin: 0px 0px 0px 290px;
+}
+
+/* Formatação da linha do cabeçalho da tabela */
+.listaProdutosEnvio tr, .listaProdutosEnvio th{
+    border: px solid #ddd;
+    padding: 8px;
+}
+
+/* Formatação adicional da linha de cabeçalho da tabela */
+.listaProdutosEnvio th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    /* background-color: #04AA6D; */
+    background-color: var(--cor-laranja-az);
+    color: white;
+}
+
+/* seletor CSS que seleciona um elemento com base em sua posição em relação a seus irmãos dentro do elemento pai */
+.listaProdutosEnvio tr:nth-child(even){
+    /* background-color: #f2f2f2; */
+    background-color: lightgray;
+}
+
+/* seletor CSS que seleciona um elemento com base em sua posição em relação a seus irmãos dentro do elemento pai */
+.listaProdutosEnvio tr:nth-child(odd){
+    background-color: lightgray;
+}
+
+/* Altera o background atrvés do hover nas linhas da tabela(tr) */
+.listaProdutosEnvio tr:hover{
+    /* background-color: #ddd; */
+    background-color: lightsteelblue;
+    color: blue;
+}
+
+/* Formatação das linhas retornadas no corpo da tabela(td) */
+.listaProdutosEnvio td{
+    margin:5px;
+    padding: 10px;
+    background-color: transparent;
+}
+
+/* Formatação específica de uma classe na tabela  -  <tr> */
+.cellCenter{
+    font-weight: normal;
+    font-size: larger;
+}
+
+/* Formatação específica de uma classe na tabela */
+.listaAgrupada{
+    margin: 0 auto;
+}
+
+/* APAGAR DEPOIS  - está estreitando a tabela toda */
+/* #tab_cab{
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+} */
+
+/* Formatação específica de um ID na tabela */
+#ternario{
+    font-weight: bolder;
+    text-decoration: underline;
+    color: white;
+    background-color: purple;
+    border: solid 5px maroon;
+    border-radius: 15px 15px 15px 15px;
+    height: auto;
+    width: 550px;
+    margin: 10px 30%;
+    padding: 2%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Formatação específica de uma classe na tabela - BOTÃO "PENDENTE" e "ENVIADO" */
+.btn_pendente,
+.btn_enviado{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #333;
+    /* background-color: Teal; */
+    background-color: burlywood;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    height: 30px;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5% 10%;
+    margin-left: 15%;
+    transition: 0.2s all;
+}
+
+/* Formatação específica de uma classe na tabela - BOTÃO "PENDENTE" e "ENVIADO"  -  HOVER */
+.btn_pendente:hover,
+.btn_enviado:hover{
+    border: 1px solid black;
+    color: blue;
+}
+
+/* Formatação específica de uma classe na tabela - BOTÃO "PENDENTE" e "ENVIADO"  -  ACTIVE */
+.btn_pendente:active,
+.btn_enviado:active{
+    /* Escala do botão 0.98 do tamanho original */
+    transform: scale(0.98);
+    /* Sombra abaixo do botão */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    font-weight: bolder;
+    color: purple;
+}
+
+
+

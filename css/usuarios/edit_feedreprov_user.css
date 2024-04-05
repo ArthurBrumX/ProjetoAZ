@@ -1,0 +1,374 @@
+:root{
+  /*Cores*/
+  --cor-fundo-menu: rgb(0, 36, 54);
+  --cor-laranja-az: rgb(239, 78, 35);
+  /*Transições*/
+  --tran-menu: 0.5s all ease;
+  /*Tamanho de fontes*/
+  --tamanho-fonte-titulo-tela: 20px;
+  --tamanho-fonte-span-input: 16px;
+  --tamanho-fonte-titulo-card: 18px;
+  --escrita-cliente-tamanho-fonte-texto-input: 14px;
+  /* Paleta de cores AZ */
+  --cor-branca-para-fundos-escuros: rgb(255,255,255);
+  --cor-laranja-fraco-para-texto: rgb(215, 91, 54);
+  --cor-azul-escuro-para-caixas-dentro-site: rgb(23,61,87);
+  --cor-azul-escuro-para-fundos-site: rgb(0,36,54);
+  --fonte-Tomorrow: 'Tomorrow', sans-serif;
+  --cor-cinza-apagado: rgba(217, 217, 217, 0.30);
+  --cor-cinza: rgb(217,217,217);
+  --cor-vermelha: rgb(255, 0, 0);
+}
+.edit_feedReprov_caixa-form .edit_feedReprov_form .aviso{
+color:red;
+margin-top:10px;
+font-weight: bold;
+}
+.edit_feedReprov_user_tudo{
+  z-index: 2;
+  position: fixed;
+  width: auto;
+  left: 300px;
+  right: 50px;
+  height: auto;
+  bottom: 40px;
+  top: 120px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px 10px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit_feedReprov_caixa-total{
+  width: 1000px;
+  height: 660px;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: var(--cor-cinza-apagado);
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.edit_feedReprov_caixa-jusficativa-editar{
+  background-color: var(--cor-azul-escuro-para-fundos-site);
+  display: flex;
+  padding: 5px;
+}
+
+
+.edit_feedReprov_caixa-jusficativa-editar,.edit_feedReprov_caixa-form{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  border-radius: 15px;
+
+
+}
+
+.edit_feedReprov_caixa-jusficativa-editar{
+  background-color: var(--cor-azul-escuro-para-fundos-site);
+}
+
+.edit_feedReprov_caixa-form{
+  display: flex;
+  height: 500px;
+  background-color: var(--cor-azul-escuro-para-caixas-dentro-site);
+  justify-content: center;
+}
+
+.edit_feedReprov_titulo{
+  color: var(--cor-laranja-az);
+  margin-bottom: 10px;
+}
+
+.edit_feedReprov_mensagem-justificativa{
+  color: var(--cor-branca-para-fundos-escuros);
+  word-break: keep-all; 
+  padding: 10px;
+  margin-bottom: 10px;
+
+}
+
+.edit_feedReprov_form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*CADASTRO PRODUTO*/
+.edit_feedReprov_caixa-input{
+  position: relative;
+  margin-top: 30px; /*distancia entre os inputs caso um em cima do*/
+  margin-bottom: 20px;
+  display: flex;
+}
+/* Característica do input */
+.edit_feedReprov_caixa-input .edit_feedReprov_input{
+  font-size: 14px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 2px solid rgb(213, 90, 59);
+  background: transparent;
+  font-family: "Tomorrow", sans-serif;
+}
+.edit_feedReprov_caixa-input .edit_feedReprov_input:focus{
+  outline: none;
+}
+/* cor do texto escrito */
+.edit_feedReprov_input{
+  color: white;
+}
+/*Nomes das linhas*/
+.edit_feedReprov_caixa-input .edit_feedReprov_label{
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Tomorrow", sans-serif;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: flex;
+}
+.edit_feedReprov_caixa-input .edit_feedReprov_label-letra{
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * 0.05s);
+}
+.edit_feedReprov_caixa-input .edit_feedReprov_input:focus ~ .edit_feedReprov_label .edit_feedReprov_label-letra,
+.edit_feedReprov_caixa-input .edit_feedReprov_input:valid ~ .edit_feedReprov_label .edit_feedReprov_label-letra{
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: rgb(215, 91, 54);
+}
+.edit_feedReprov_caixa-input .edit_feedReprov_barra{
+  position: relative;
+  display: block;
+  width: 100px;
+}
+.edit_feedReprov_caixa-input .edit_feedReprov_barra:before, .edit_feedReprov_caixa-input .edit_feedReprov_barra:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.edit_feedReprov_caixa-input .edit_feedReprov_barra:before{
+  left: 50%;
+}
+.edit_feedReprov_caixa-input .edit_feedReprov_barra:after{
+  right: 50%;
+}
+.edit_feedReprov_caixa-input .edit_feedReprov_input:focus ~ .edit_feedReprov_barra:before,
+.edit_feedReprov_caixa-input .edit_feedReprov_input:focus ~ .edit_feedReprov_barra:after {
+  width: 50%;
+}
+
+.edit_feedReprov_areaTexto{
+  margin-top: 20px;
+}
+
+#msgFeedbackEdit{
+background-color: var(--cor-azul-escuro-para-fundos-site);
+color: var(--cor-branca-para-fundos-escuros);
+resize: none;
+border-radius: 15px;
+border: solid 2px var(--cor-laranja-az);
+padding: 10px;
+word-break: keep-all;
+}
+
+.edit_feedReprov_botao_salvar{
+display: flex;
+width: 160px;
+height: auto;
+margin-top: 30px;
+background-color: var(--cor-branca-para-fundos-escuros);
+color: var(--cor-laranja-az);
+justify-content: center;
+border-radius: 15px;
+font-weight: bold;
+padding: 8px;
+font-size: 16px;
+}
+
+.edit_feedReprov_botao_salvar:hover{
+cursor: pointer;
+background-color: var(--cor-laranja-az);
+color: var(--cor-branca-para-fundos-escuros);
+}
+.edit_feedReprov_caixa_aviso{
+margin-bottom: 10px ;
+display: flex;
+background-color: var(--cor-azul-escuro-para-caixas-dentro-site);
+}
+.edit_feedReprov_titulo_form{
+margin-bottom: 15px;
+color: var(--cor-branca-para-fundos-escuros);
+
+}
+.edit_feedReprov_caixa_perfils{
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+width: 420px;
+margin-bottom: 30px;
+}
+
+.edit_feedReprov_perfil_nome{
+color: var(--cor-branca-para-fundos-escuros);
+margin-top: 8px;
+}
+
+.edit_feedReprov_perfil_img{
+width: 100px;
+border-radius: 50px;
+height: 100px;
+}
+
+.edit_feedReprov_destinatario,.edit_feedReprov_remetente{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+/*inicio seta*/
+
+#arrowAnim {
+margin-top: 40px;
+width: 10px;
+display: flex;
+height: 50px;
+margin-left: 100px;
+}
+
+.arrow {
+width: 0;
+height: 0;
+border-left: 5px solid transparent; /* Metade da largura da seta em pixels */
+border-right: 5px solid transparent; /* Metade da largura da seta em pixels */
+border: 12px solid;
+border-color: var(--cor-laranja-az) transparent transparent var(--cor-laranja-az);
+transform: rotate(135deg);
+}
+
+
+.arrowSliding {
+position: absolute;
+-webkit-animation: slide 4s linear infinite; 
+animation: slide 4s linear infinite;   
+}
+
+.delay1 {
+-webkit-animation-delay: 1s; 
+animation-delay: 1s;
+}
+.delay2 {
+-webkit-animation-delay: 2s; 
+animation-delay: 2s;
+}
+.delay3 {
+-webkit-animation-delay: 3s; 
+animation-delay: 3s;
+}
+
+@-webkit-keyframes slide {
+0% { opacity:0; transform: translateX(-9px);}	
+20% { opacity:0; transform: translateX(-100px);}	
+80% { opacity:0; transform: translateX(10px);}	
+100% { opacity:0; transform: translateX(-15px);}	
+}
+@keyframes slide {
+0% { opacity:0; transform: translateX(135px);}	
+20% { opacity:0.1; transform: translateX(-135px);}
+80% { opacity:1; transform: translateX(-8px);}	
+100% { opacity:0; transform: translateX(-30px);}	
+}
+
+
+/*Fim Seta*/
+
+.titulo_rejeitado_feed{
+display: flex;
+margin-bottom: 20px;
+}
+
+.edit_feedReprov_titulo_reprov{
+color: red;
+}
+
+
+@media only screen and (max-width: 1300px){
+.edit_feedReprov_caixa-total{
+  width: 800px;
+}
+.edit_feedReprov_caixa-jusficativa-editar{
+  width: 350px;
+}
+
+#arrowAnim{
+  margin-top: 22px;
+}
+.edit_feedReprov_perfil_img{
+  width: 65px;
+  height: 65px;
+}
+}
+
+@media only screen and (max-width: 1000px){
+  .edit_feedReprov_caixa-total{
+    flex-direction: column ;
+  }
+  .titulo_rejeitado_feed{
+    margin-bottom: 0px;
+  }
+  .edit_feedReprov_caixa_perfils{
+    margin-bottom: 15px;
+  }
+  .edit_feedReprov_areaTexto{
+    margin-bottom: 0px;
+  }
+  .edit_feedReprov_caixa-input{
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+  .edit_feedReprov_botao_salvar{
+    margin-top: 15px;
+  }
+
+  .edit_feedReprov_caixa-jusficativa-editar{
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px){
+.edit_feedReprov_user_tudo{
+  left: 100px;
+  right: 10px;
+
+}
+.edit_feedReprov_areaTexto{
+  margin-bottom: 0px;
+}
+.edit_feedReprov_caixa-input{
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+.edit_feedReprov_botao_salvar{
+  margin-top: 15px;
+}
+.edit_feedReprov_caixa-total{
+  width: 600px;
+}
+
+}

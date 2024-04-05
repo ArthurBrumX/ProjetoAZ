@@ -1,0 +1,173 @@
+.main_listar{                                   /*CAIXA GERAL DO LISTAR*/
+    z-index: 2;
+    display: flex;
+    position: fixed;
+    gap: 10px;
+    top: 140px;
+    width: auto;
+    left: 300px;
+    right: 50px;
+    height: auto;
+    bottom: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0px 20px 0px;
+    border-color: var(--cor-cinza-borda-tela);
+    background-color:var(--cor-cinza-apagado);
+}
+.main_listar .formulario_listar{                                            /*FORMULÁRIO*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    align-self: center;
+    justify-content: space-around;
+    padding: 15px 0px 15px 0px;
+}
+.main_listar .formulario_listar div{
+    display: flex;
+    color: var(--cor-branca-para-fundos-escuros);
+}
+.main_listar .formulario_listar div label{
+    color: black;
+    margin: 2px 5px;
+}.main_listar .formulario_listar div input{
+    border: none;
+    border-radius: 5px;
+}
+.main_listar .formulario_listar .botao_filtrar{
+    border-color: transparent;
+    background-color: rgb(239, 78, 35);
+    color: white;
+    border-radius: 10px;
+    padding: 3px;
+    width: 100px;
+}
+.main_listar .formulario_listar .botao_filtrar:hover{
+    color: var(--cor-laranja-az);
+    background-color: var(--cor-branca-para-fundos-escuros);
+    cursor: pointer;
+}
+.main_listar .div_tabela{                                                   /*TABELA*/
+    width: 95%;
+    height: auto;
+    display: flex;
+    overflow: auto;
+    color: black;
+    align-self: center;
+    justify-content: center;
+}
+.main_listar .div_tabela table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid var(--cor-cinza-borda-tela);
+    letter-spacing: 1px;
+    background-color: var(--cor-branca-para-fundos-escuros);
+}
+.main_listar .div_tabela table thead{
+    background-color: var(--cor-cinza-borda-tela);
+}
+.main_listar .div_tabela table thead th{
+    padding: 15px;
+}
+.main_listar .div_tabela table tr:hover td{
+    background-color: var(--cor-fundo-menu);
+    color: var(--cor-branca-para-fundos-escuros);
+}
+.main_listar .div_tabela table tr:hover path{
+    fill: white;
+}
+.main_listar .div_tabela table tr:nth-child(even){
+    background-color: var(--cor-cinza-borda-tela);
+}
+.main_listar .div_tabela td{
+    border: 1px solid var(--cor-cinza-borda-tela);
+    padding: 8px 10px;
+    text-align: center;
+}
+.main_listar .div_tabela .btn_edit{
+    background-color: var(--cor-fundo-menu);
+}
+.main_listar .listar_paginacao{                                             /*PAGINAÇÃO*/
+    gap: 5px;
+    padding-top: 10px;
+    display: flex;
+    align-self: center;
+    position: relative;
+    justify-content: center;
+}
+.main_listar .listar_paginacao .botao_pagina{
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: none;
+    color: var(--cor-branca-para-fundos-escuros);
+}
+.main_listar .listar_paginacao .botao_editar{
+    border: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+}
+                                                                /* O QUE ISSO FAZ?! */
+/* .main_listar .element-table .mao{
+    display: visible;
+    pointer-events: all;
+}
+.main_listar .element-table .mao.tampada{
+    display: none;
+    pointer-events: none;
+} */
+                                                                /* O QUE ISSO FAZ?! */
+/*Configurações do Site Responsivo*/
+@media screen and (max-width: 768px){
+    /*Distância horizontal do Menu Lateral*/
+    .main_listar{
+        left: 100px;
+        right: 20px;
+    }
+    .main_listar .div_tabela table thead{
+        display: none;
+    }
+    .main_listar .div_tabela table tr, .main_listar .div_tabela table td{
+        display: block;
+        width: 100%;
+    }
+    .main_listar .div_tabela table tr{
+        margin-bottom: 1rem;
+    }
+    .main_listar .div_tabela table tr td{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+    .main_listar .div_tabela table td::before{
+        content: attr(data-lable);
+        position: relative;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1400px){
+    .main_listar .div_tabela table thead{
+        display: none;
+    }
+    .main_listar .div_tabela table tr, .main_listar .div_tabela table td{
+        display: block;
+        width: 100%;
+    }
+    .main_listar .div_tabela table tr{
+        margin-bottom: 1rem;
+    }
+    .main_listar .div_tabela table tr td{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+    .main_listar .div_tabela table td::before{
+        content: attr(data-lable);
+        position: relative;
+    }
+}

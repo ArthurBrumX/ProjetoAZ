@@ -1,0 +1,1 @@
+A pasta 'includes' serve para guardar o cabeçalho, formulários, rodapés, etc.

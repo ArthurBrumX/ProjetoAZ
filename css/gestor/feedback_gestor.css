@@ -1,0 +1,560 @@
+.bari{
+    width: 100vw;
+    height: 75%;
+}
+.caixa-geral-feedbak-colaborador-1{
+    width: auto;
+    height: auto;
+    left: 18%;
+    right: 1%;
+    top: 10%;
+    bottom: 5%;
+    border-radius: 15px;
+    margin: 3% auto 2% 0%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding: 10px;
+    justify-content: center;
+}
+.conteudo-feedbacks-colaborador-1{/* Fundo da moldura */
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(217, 217, 217, 0.5);
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 1;
+    gap: 3%;
+    border-radius: 15px;
+}
+.conteudo-feedbacks-colaborador-1::-webkit-scrollbar{/* BARRA DE ROLAGEM - LATERAL DIREITA */
+    width: 10px;
+    background-color: var(--cor-cinza);
+    border-radius: 10px;
+}
+.conteudo-feedbacks-colaborador-1::-webkit-scrollbar-thumb{
+    background-color: var(--cor-laranja-az);
+    border-radius: 10px;
+}
+/*Propriedades da Feedback Tela Vazia*/
+.telavazia{
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    width: 80%;
+    left: 300px;
+    right: 50px;
+    height: 75vh;
+    margin-top: 3%;
+}
+.telavazia .textotelavazia{
+    font-size: 1rem;
+    position: relative;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+}
+.telavazia .giftelavazia{
+    z-index: 2;
+    margin-top: 5%;
+    position: relative;
+    width: 80%;
+    height: 500px;
+    justify-content: center;
+    margin-top: 3%;
+    border-radius: 5px;
+    border-color: var(--cor-laranja-az);
+    border-width: 10px;
+}
+/*Configurações do Site Responsivo*/
+@media only screen and (max-width: 768px){
+    .telavazia{
+        right: 20px;
+        left: 100px;
+    }
+}
+#contain_card{/* Box card */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    width: 95%;
+    margin: 0 auto;
+    background-color: transparent;
+}
+#newcard{
+    width: 300px;
+    height: 400px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#newcard #img_avatar{
+    height: 354px;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+}
+.container-card-1{
+    height: 370px;
+    width: 290px;
+    perspective: 800px;
+    margin: 5% 2% 5% 2%;
+}
+.container-card-1:hover > .card-1{
+    transform: rotateY(180deg);
+}
+.card-1{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+}
+.card-frente-1{/* Frente do card */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-azul-escuro-para-fundos-site);
+    border: solid 3px var(--cor-laranja-az);
+    position: absolute;
+}
+.card-frente-cabecalho{/* cabeçalho da Frente do card*/
+    display: inline-flex;
+    justify-content: right;
+    align-items: center;
+    height: 40px;
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    padding: 0% 4%;
+}
+.valor{/* valor "monetário" da doação */
+    color: var(--cor-laranja-az);
+    font-weight: bold;
+    padding: 0.5px;
+}
+.icone-azcoin-adicionada-1{/* Moeda */
+    display: flex;
+    width: 40px;
+    background-color: transparent;
+}
+#moeda{/* adicionada id */
+    padding: 0px 6px 0px 5px;
+}
+@media only screen and (max-width: 1024px)
+{
+    .caixa-geral-feedbak-colaborador-1 {
+        margin-top: 22px;
+        left: 102px;
+        right: 18px;
+    }
+    .modal-dialog .modal-content {
+        width: 70%;
+        margin-left: 114px;
+    }
+    #header-cont-feed-like {
+        font-size: 20px;
+    }
+}
+@media only screen and (min-width: 768px)
+{
+    .caixa-geral-feedbak-colaborador-1 {
+        margin-top: 42px;
+        left: 258px;
+        right: 8px;
+    }
+    .modal-dialog .modal-content {
+        width: 30%;
+        margin: auto;
+    }
+    #header-cont-feed-like {
+        font-size: 22px;
+    }
+}
+.card-tras-1{/* verso do card */
+    background-color: var(--cor-azul-escuro-para-fundos-site);
+    transform: rotateY(180deg);
+    border: solid 3px var(--cor-laranja-az);
+}
+.card-tras-conteudo-1{/* conteúdo do verso d card */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.carde-cabecalho-1{/* cabeçalho do verso do card - box que contém as imagens doador > receptor*/
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 70px;
+}
+.card-frente-1,.card-tras-1{/* definições comuns para os cards - frente e verso */
+    width:100%;
+    height: 100%;
+    border-radius: 15px;
+    position: absolute;
+    backface-visibility: hidden;
+}
+.img_rem_dest{/* definições (class) das imagens doador > destinatario - no verso do card */
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    height: 64px;
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    padding: 0 5%;
+    margin-top: 2%;
+}
+
+/* Definições (id) apenas das imagens no verso do card */
+#img_card_verso{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.de_para{/* Apelidos dos colaboradores (de:   para:) */
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    height: auto;
+    width: 100%;
+    padding: 2% 0% 0% 0%;
+    font-weight: bold;
+    color: var(--cor-laranja-az);
+}
+
+.nome-card-remet-gestor{
+    display: flex;
+    margin-left: 25px;
+}
+
+.nome-card-dest-gestor{
+    display: flex;
+    margin-right: 25px;
+}
+#arrowAnim-1{/*    Seta   Inicio  */
+    margin-top: 5px;
+    width: 1px;
+    display: flex;
+    height: 25px; /* 50px; */  /* 'posição' */
+    margin-left: 120px; /*120px;*/
+}
+.arrow-1{
+    width: 9px;/*9px;*/
+    border: 0.5vw solid; /* 1.2vw solid; */ /* Tamanho da seta */
+    border-color: var(--cor-laranja-az) transparent transparent var(--cor-laranja-az);
+    transform: rotate(135deg);
+}
+.arrowSliding-1{
+    position: absolute;
+    -webkit-animation: slide 2s linear infinite; /* 4s Velocidade de retorno da seta destinatario < remetente */
+    animation: slide 2s linear infinite;   /* 4s Velocidade da seta rementen > destinatario  */
+}
+.delay1-1{
+    -webkit-animation-delay: 1s;  
+    animation-delay: 1s;    
+}
+.delay2-1{
+    -webkit-animation-delay: 2s; 
+    animation-delay: 2s; 
+}
+.delay3-1{
+    -webkit-animation-delay: 3s; 
+    animation-delay: 3s;    
+}
+@-webkit-keyframes slide{
+    0% { opacity:0; transform: translateX(-9px);}	
+    20% { opacity:0; transform: translateX(-100px);}	
+    80% { opacity:0; transform: translateX(10px);} 	
+    100% { opacity:0; transform: translateX(-15px);}	
+}
+@keyframes slide{
+    0% { opacity:0; transform: translateX(135px);}
+    20% { opacity:0.1; transform: translateX(-135px);}
+    80% { opacity:1; transform: translateX(-8px);}	
+    100% { opacity:0; transform: translateX(-30px);}	
+}
+/*    Seta  Final   */
+/* Verso do card - box do feedback incluido nomes remetente > destinatario */
+.feedback-titulo-1{/* Verso do card - SOMENTE o texto "Feedback" */
+    color: var(--cor-branca-para-fundos-escuros);
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.feedback-enviado-1{/* Verso do card - mensagem do feedback (doação) */
+    font-size: 16px;
+    height: 46%;
+    width: 88%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin: 10px 17px;
+    padding: 5px 8px;
+    color: var(--cor-branca-para-fundos-escuros);
+    text-align: justify;
+    text-indent: 20px; /* definição do recuo do paragráfo */
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    background-color: transparent;
+    word-break: break-all;
+}
+.feedback-enviado-1:hover{
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.cardModalLike, .cardModalDislike{      /* classe "apagada" - NÃO TEM MAIS ESSA CLASSE */
+    background-color: var(--cor-azul-escuro-para-fundos-site);
+}
+/* --------------------------------------------------------- */
+/* --------------------------------------------------------- */
+/* --------------------------------------------------------- */
+/* INICIO MODAL */
+.joinha{/* div (.joinha) */
+    margin-top: 1px;/*21.5rem;*/
+    display: flex;
+    justify-content: space-evenly;
+    background-color: transparent;
+}
+#id_modal_like, #id_modal_dislike{/* Esta tag no html não deve ser apagada, pois é usada como identificador (ID) no javascript*/
+    font-size: 0%;
+    color: transparent;
+    background-color: transparent;
+}
+/* ------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------ */
+/*                       BOTOES OK (do verso do card)                             */
+/* ------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------ */
+
+/* somente IDs #aprovar, #reprovar (da parte de trás dos cards) - thumb up, thumb down */
+.btn_verso_card{
+    background-color: transparent;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 64px;
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    padding: 0 20%;
+    position: fixed;
+    bottom: 1%;
+}
+
+
+#aprovar:hover, 
+#like:hover{
+    cursor: pointer;
+    border: 2px solid green;
+}
+#reprovar:hover, #dislike:hover{
+    cursor: pointer;
+    border: 2px solid red;
+}
+@-webkit-keyframes joinha{/* adiciona animação - decida da janela - (Chrome, Safari, Opera) */
+    from {top:-100px;opacity: 0;}
+    to {top:0px;opacity:1;}
+}
+@keyframes joinha{/* adiciona animação - decidada janela - (Standard syntax) */
+    from {top:-100px;opacity: 0;}
+    to {top:0px;opacity:1;}
+}
+.modal-feed{/* O fundo (ambinte atrás) do modal - The modal's background */
+    display: none;
+    position: fixed;
+    /* left: 17.5rem;
+    top: 4rem;
+    width: 60%;
+    height: 60%; */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+}
+.modal-feed:target{/* Mostra o modal quando estiver "no alvo" - Display the modal when targeted */
+    display: table;
+    position: absolute;
+}
+.modal-dialog{/* The modal box */
+    display: table-cell;
+    vertical-align: middle;
+}
+.modal-dialog .modal-content{/* The modal's content */
+    /* margin: auto; */ /* linha adicionada no @media */
+    /* width: 30%; */   /* Linha adicionada no @media */
+
+    background-color: #f3f3f3;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    border: 1px #777 solid;
+    text-align: justify;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    /* adiciona animação */
+    -webkit-animation-name: joinha; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 0.5s; /* Chrome, Safari, Opera */
+    animation-name: joinha;
+    animation-duration: 0.5s;
+}
+.closebtn-feed{/* Botão para fechar o modal -The button used to close the modal */
+    text-decoration: none;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+    background-color: red;
+    position: absolute;
+    top: 0.3rem;
+    left: 93.5%; /*19.5rem;*/
+    line-height: 0.5;
+    padding: 0.5% 0.5% 0 0.5%;
+}
+.closebtn-feed:hover, .closebtn-feed:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: red;
+    margin-right: 80%;
+    left: 93.5%;
+    line-height: 0.5;
+}
+.container-feed-like{
+    padding: 2px 16px;  /* 2px 26px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.aprova-modal{
+    background-color: #5cb85c;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#aviso-like{
+    font-size: medium;
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+}
+#header-cont-feed-like{
+    background-color: #5cb85c;
+    /* font-size: 25px; */
+    color: white;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+#footer-cont-feed-like{
+    background-color: #5cb85c;
+    font-size: 20px;
+    color: white;
+}
+#justify-form{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#btn-aprovar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 2rem;
+    margin: 1.5% 0% 0% 1.5%;
+}
+.container-feed-dislike{
+    padding: 2px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.justify-modal{
+    background-color: var(--cor-azul-escuro-para-caixas-dentro-site);
+    padding: 2px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#aviso-dislike{
+    font-size: medium;
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+}
+#header-cont-feed-dislike{
+    background-color: var(--cor-azul-escuro-para-caixas-dentro-site);
+    font-size: 25px;
+    color: white;
+}
+#footer-cont-feed-dislike{
+    background-color: var(--cor-azul-escuro-para-caixas-dentro-site);
+    font-size: 20px;
+    color: white;
+}
+#justify-form1{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin: 3px 0px;
+}
+#justificativa_modal{/* Label JUSTIFICATIVA */
+    display: flex;
+    align-items: start;
+}
+#btn-enviar{
+    display: flex;
+    align-items: baseline;
+    width: 4rem;
+    height: 2rem;
+    color: #008000;
+}
+
+
+/* FIM MODAL */
+
+.img-dislike,.img-like{
+    display: flex;
+    width: 50px;
+    height: 50px;
+}
+
+.button-dislike,.button-like{
+    display: flex;
+    border-radius: 50px;
+}
+
+.button-dislike:hover{
+    border: solid 2px red;
+    cursor: pointer;
+}
+
+.button-like:hover{
+    border: solid 2px green;
+    cursor: pointer;
+}

@@ -1,0 +1,165 @@
+/*TELAS CADASTROS*/
+.div-form-cadastrar {
+  width: calc(100% - 250px);
+  height: calc(100% - 100px);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.form-cad-user {
+  height: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.caduser {
+  height: 600px;
+  width: 450px;
+  z-index: 2; 
+  background: rgb(23, 61, 87);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+.caixa-input {
+  position: relative;
+  margin-top: 30px; /*distancia entre os inputs caso um em cima do*/
+  display: flex;
+  margin-left: 40px;
+
+}
+
+/* Característica do input */
+.caixa-input .input {
+  font-size: 14px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 90%;
+  border: none;
+  border-bottom: 2px solid rgb(213, 90, 59);
+  background: transparent;
+  font-family: "Tomorrow", sans-serif;
+}
+.caixa-input .input:focus {
+  outline: none;
+}
+.textoradio{
+  color: white;
+}
+/* cor do texto escrito */
+.input {
+  color: white;
+}
+/*Nomes das linhas*/
+.caixa-input .label {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Tomorrow", sans-serif;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: flex;
+}
+.caixa-input .label-letra {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * 0.05s);
+}
+.caixa-input .input:focus ~ label .label-letra,
+.caixa-input .input:valid ~ label .label-letra {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: rgb(215, 91, 54);
+  text-transform: uppercase;
+}
+.caixa-input .barra {
+  position: relative;
+  display: block;
+  }
+.caixa-input .barra:before,
+.caixa-input .barra:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+} 
+.caixa-input .barra:before {
+  left: 50%;
+}
+.caixa-input .barra:after {
+  right: 50%;
+}  */
+ .caixa-input .input:focus ~ .barra:before,
+.caixa-input .input:focus ~ .barra:after {
+  width: 50%;
+} 
+
+/* Fim Input com Span Subindo
+/*botões*/
+.div-radio-cadastro-usuario{
+  margin: 10px 40px;
+}
+
+.radio-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  margin-top: 10px;
+}
+.option {
+  position: relative;
+  opacity: 0.9;
+  cursor: pointer;
+}
+.botao {
+  /* background-color: gold;*/
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 30px;
+}
+.botao :hover {
+  background-color: rgb(213, 90, 59);
+}
+
+#cancelar {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+.span-require{
+  display: none;
+  font-size: 13px;
+  margin: 3px 0 0 1px;
+  color: rgb(82,175,200);
+
+}
+.botaop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  margin-top: 5px;     
+
+}
+
+#cadas-usua-cancela{
+  background-color: black;
+}
+#cadas-usua-cancela:hover{
+  background-color: white;
+  color: blac;
+}

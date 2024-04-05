@@ -1,0 +1,163 @@
+/*Propriedades da Tela Renes*/
+*{
+    padding: 0px;
+    margin: 0px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    outline: none;
+}
+.tela-compra-produto-user{
+    position: fixed;
+    z-index: 2;
+    width: auto;
+    left: 300px;
+    right: 50px;
+    height: 75vh;
+    margin-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 20px;
+    background-color: rgba(217, 217, 217, .44);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgb(191, 191, 191);
+}
+.main{
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+}
+
+.descricao_produto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    
+}
+
+.descricao_produto .p_compra_produto{
+    padding: 4px;
+    text-align: justify-all;
+    margin-top: 4px;
+    align-items: center;
+}
+
+.descricao_produto .h3_compra_produto{
+    padding: 4px;
+    margin-top: 4px;
+    align-items: center;
+}
+
+.descricao_produto .div_text_descricao_produto{
+    margin-top: 20px;
+    width: 350px;
+}
+.produto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.produto img{
+    margin-top: 20px;
+    width: 300px;
+    height: 200px;
+}
+.comprar_produto{
+    width: 350px;
+
+}
+.avatar_comprar img{
+    width: 250px;
+
+}
+
+.quant_prod{
+    display: flex;
+    flex-direction: column;
+}
+
+.quant_prod_select{
+    padding-top: 10px;
+    display: flex;
+}
+
+#quantidade_produto{
+    width: 50px;
+    margin-left: 12px; 
+    text-align: center;
+}
+
+#quantidade_produto::-webkit-inner-spin-button,
+#quantidade_produto::-webkit-outer-spin-button {
+opacity: 1;
+}
+
+.comprar-form-btn{
+    font-size: 16px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 50%;
+    height: 30px;
+    border-radius: 15px;
+    transition: all 0.4s;
+    background-color: rgb(242, 93, 39);
+    color: white;
+    margin-top: 30px;
+}
+
+/*Configurações do Site Responsivo*/
+@media screen and (min-width: 768px) and (max-width: 990px){
+    .main{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .comprar_produto{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .comprar-form-btn{
+        width: 100%;
+    }
+    .descricao_produto .div_text_descricao_produto{
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+    }
+
+    .avatar_comprar img{
+        margin-left: 90px;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 768px){
+    .tela-compra-produto-user{
+        left: 100px;
+        right: 20px;
+    }
+
+}
+

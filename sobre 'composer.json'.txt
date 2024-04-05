@@ -1,0 +1,33 @@
+'O composer.json' é responsável por configurar o autoload das classes do projeto
+
+A função autoload é utilizada no PHP para fazer o carregamento automático das classes.
+Sempre que desejarmos criar um objeto, temos que ter obrigatoriamente a classe responsável
+pela criação do objeto carregada na memória, caso contrário o PHP retornará um erro.
+Para carregar classes na memória podemos carregar todas as classes no inicio do documento
+utilizando o comando include_once ou com o mesmo comando imediatamente antes de instanciar um objeto.
+
+O composer é o gerenciador de dependências:
+Com o objetivo de gerenciar bibliotecas externas em projetos, um gerenciador de dependência
+nada mais é que um facilitador para instalação, remoção e atualização de pacotes externos em projetos.
+
+É neste arquivo que o desenvolvedor especifica as bibliotecas necessárias para o projeto.
+
+Um pouco sobre a 'psr-4': https://www.treinaweb.com.br/blog/psr-4-a-recomendacao-de-autoload-do-php
+
+Instale o composer no seu PC:
+Instalando o Composer no Windows: https://marketplace.visualstudio.com/items?itemName=ikappas.composer
+
+Após instalar o composer execute o comando 'composer install' no terminal do VSCODE.
+O comando fará com que ele gere uma pasta chamada 'vendor'
+
+Exemplo de output do terminal depois de executar o comando:
+▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+No composer.lock file present. Updating dependencies to latest instead of installing from lock file. See https://getcomposer.org/install for more information.
+Loading composer repositories with package information
+Updating dependencies
+Nothing to modify in lock file
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Nothing to install, update or remove
+Generating autoload files
+▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲

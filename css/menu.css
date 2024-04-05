@@ -1,0 +1,561 @@
+:root{
+    /*Transições*/
+    --tran-menu: 0.5s all ease;
+    /*Tamanho de fontes*/
+    --tamanho-fonte-span-input: 16px;
+    --tamanho-fonte-titulo-tela: 20px;
+    --tamanho-fonte-titulo-card: 18px;
+    --escrita-cliente-tamanho-fonte-texto-input: 14px;
+    /* Paleta de cores AZ */
+    --cor-cinza: rgb(217,217,217);
+    --cor-fundo-menu: rgb(0, 36, 54);
+    --cor-laranja-az: rgb(239, 78, 35);
+    --cor-laranja-az-claro: rgb(220, 113, 82);
+    --cor-cinza-borda-tela: rgb(191, 191, 191);
+    --cor-cinza-apagado: rgba(217, 217, 217, .44);
+    --cor-cinza-apagado-fundo: rgb(217, 217, 217);
+    --cor-cinza-escuro: rgba(103, 102, 104);
+    --cor-azul-escuro-para-fundos-site: rgb(0, 36, 54);
+    --cor-laranja-fraco-para-texto: rgb(215, 91, 54);
+    --cor-branca-para-fundos-escuros: rgb(255, 255, 255);
+    --cor-azul-escuro-para-caixas-dentro-site: rgb(23, 61, 87);
+    --cor-azul-claro: rgb(82, 175, 200);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tomorrow', serif;
+}
+.bg{
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0.35;
+    position: absolute;
+    pointer-events: none;
+}
+/*Propriedades do Menu Lateral*/
+.menulateral{
+    border-right-style: solid;
+    border-right-color: var(--cor-laranja-az) ;
+    border-right-width: 2px;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--cor-fundo-menu);
+}
+/*Propriedades da Lista Menu*/
+.menulateral .listamenu{
+    gap: 3.5vh;
+    display: flex;
+    flex-flow: column;
+    list-style-type: none;
+    justify-content: space-between;
+    margin-left: 40px;
+    position: relative;
+}
+/*Propriedades do SVG AzMerit*/
+.menulateral .listamenu .logoazmerit{
+    margin-top: 4vh;
+    position: relative;
+    margin-left: -15px;
+}
+.menulateral .listamenu .logoazmerit #logoazmerit{
+    align-items: center;
+    display: flex;
+    transition: width 0.5s;
+}
+.menulateral .listamenu .logoazmerit #logoazmerit .path_merit{
+    padding-bottom: 4px;
+    padding-left: 7px;
+}
+/*Propriedades dos itens da lista*/
+.menulateral .listamenu .itemlista{
+    width: 100%;
+}
+.menulateral .listamenu .itemlista .itemmenu{
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+.menulateral .listamenu .itemlista .itemmenu .textoicon{
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 2px 15px;
+    margin-left: 50px;
+}
+.menulateral .listamenu .itemlista .itemmenu .icon{
+    width: 25px;
+    height: 25px;
+}
+
+/*Propriedades do hover dos itens*/
+.menulateral .listamenu .itemlista .itemmenu:hover .pathicon{
+    fill: var(--cor-laranja-az);
+}
+.menulateral .listamenu .itemlista .itemmenu:hover .textoicon{
+    color: var(--cor-laranja-az);
+}
+
+/*Propriedades do hover de Cadastrar*/
+.menulateral .listamenu .itemlista .cadastrar:hover{
+    color: var(--cor-laranja-az);
+}
+.menulateral .listamenu .itemlista .cadastrar:hover .pathicon{
+    fill: var(--cor-laranja-az);
+}
+.menulateral .listamenu .itemlista .cadastrar:hover .setabaixo path,
+.menulateral .listamenu .itemlista .cadastrar:hover .setabaixo2 path{
+    fill: var(--cor-laranja-az);
+}
+/*Botão Cadastrar*/
+.menulateral .listamenu .itemlista .cadastrar{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    width: 100%;
+}
+.menulateral .listamenu .itemlista .cadastrar .textoicon{
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 2px 15px;
+    margin-left: 50px;
+}
+.menulateral .listamenu .itemlista .cadastrar .icon{
+    width: 25px;
+    height: 25px;
+}
+.menulateral .listamenu .itemlista .cadastrar .setabaixo,
+.menulateral .listamenu .itemlista .cadastrar .setabaixo2{
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+    display: flex;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    font-size: 22px;
+    right: 10px;
+    margin-top: 30px;
+}
+.menulateral .listamenu .itemlista .cadastrar .setabaixo.rotate,
+.menulateral .listamenu .itemlista .cadastrar .setabaixo2.rotate{
+    transform: translateY(-50%) rotate(-180deg);
+}
+/*Tamanho das Ondas*/
+.menulateral .logout_div{
+    z-index: 5;
+    height: 100vh;
+    margin-top: 50px;
+    overflow: hidden;
+    position: relative;
+}
+/*Propriedades das Ondas https://www.cssscript.com/animated-waves-svg/*/
+.logout_div .waves{
+    position: relative;
+    height: 10vh;
+    margin-bottom: -7px;
+    min-height: 100px;
+    max-height: 550px;
+}
+.parallax > use{
+    animation: move-forever 10s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax > use:nth-child(1){
+    animation-delay: -1s;
+    animation-duration: 10s;
+}
+.parallax > use:nth-child(2){
+    animation-delay: -7s;
+    animation-duration: 10s;
+}
+.parallax > use:nth-child(3){
+    animation-delay: -5s;
+    animation-duration: 10s;
+}
+@keyframes move-forever{
+    0% {
+        transform: translate3d(-90px,0,0);
+    }
+    100% { 
+        transform: translate3d(85px,0,0);
+    }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px){
+    .waves {
+        height:40px;
+        min-height:40px;
+    }
+}
+.logout_div .boxlogout{
+    position: relative;
+    height: auto;
+    min-height: 100%;
+    width: 100vw;
+    background-color: var(--cor-laranja-az);
+}
+.logout_div .boxlogout .itemlogout{
+    position: fixed;
+    margin-left: 40px;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    bottom: 3%;
+}
+.logout_div .boxlogout .itemlogout .iconlogout{
+    width: 25px;
+    height: 25px;
+}
+.logout_div .boxlogout .itemlogout .textologout{
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 2px 15px;
+    margin-left: 50px;
+}
+.cabecalho{                                                        /*Propriedades do Cabeçalho*/
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    height: 100px;
+    margin-left: 250px;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--cor-laranja-az);
+}
+.cabecalho .user_box{                                              /*Propriedades da área do usuário*/
+    position: fixed;
+    right: 0;
+    padding-top: 10px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cabecalho .user_box .nome_user{
+    font-size: 1rem;
+    font-weight: bold;
+}
+.cabecalho .user_box .img_user{
+    width: 84px;
+    height: 84px;
+    margin-left: 10px;
+    border-radius: 50%;
+}
+.cabecalho .tela_atual{
+    margin-top: 70px;
+    margin-left: 60px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+.rodape{                                                           /*Propriedades do Rodapé*/
+    left: 45%;
+    bottom: 0%;
+    z-index: 1;
+    opacity: 0.35;
+    padding: auto;
+    font-size: 14px;
+    position: absolute;
+    text-align: center;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+}
+.itemlista .submenu,
+.itemlista .submenu2{                                              /*Propriedades do Sub Menu*/
+    display: none;
+}
+.itemlista .submenu.show,
+.itemlista .submenu2.show{
+    display: flex;
+    gap: 3.5vh;
+    margin-left: 65px;
+    padding-top: 25px;
+    flex-flow: column;
+    list-style-type: none;
+    justify-content: space-between;
+}
+.itemlista .submenu.show .textosub,
+.itemlista .submenu2.show .textosub{
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 2px 15px;
+    margin-left: 10px;
+}
+.itemlista .submenu.show li a:hover .textosub,
+.itemlista .submenu2.show li a:hover .textosub{
+    color: var(--cor-laranja-az);
+}
+.itemlista .submenu.show li a:hover .pathicon,
+.itemlista .submenu2.show li a:hover .pathicon{
+    fill: var(--cor-laranja-az);
+}
+.modal-padrao-ao{                                                    /*Propriedades do Modal*/
+    gap: 10px;
+    z-index: 3;
+    position: fixed;
+    display: flex;
+    vertical-align: middle;
+    height: 100%;
+    left: 250px;
+    right: 0;
+    width: auto;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.7);
+    transition: all 0.4s;
+    margin-top: 0;
+    border: solid 0px;
+    align-items: center ;
+}
+.escondido{
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+.amostra{
+    visibility: visible;
+    pointer-events: all;
+    opacity: 1;
+}
+
+.modal-padrao-ao .conteudo-modal-padrao{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    position: relative;
+    width: 450px;
+    background-color: rgb(0, 36, 54);
+    padding: 1em 2em;
+    align-items: center;
+    max-width: 500px;
+    max-height: 500px;
+    justify-content: space-evenly;
+}
+.modal-padrao-ao .conteudo-modal-padrao img{
+    width: 120px;
+}
+.modal-padrao-ao .conteudo-modal-padrao .fechar-modal{
+    position: absolute;
+    font-weight: bold;
+    font-size: 13px;
+    top: 0px;
+    right: 0px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    width: 50px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 10px 0px 0px;
+    height: 30px;
+}
+.modal-padrao-ao .conteudo-modal-padrao .fechar-modal:hover{
+    cursor: pointer;
+    color: red;
+    background-color: white;
+}
+.modal-padrao-ao .conteudo-modal-padrao .modal-footer{
+    display: flex;
+    gap: 80px;
+}
+.modal-padrao-ao .conteudo-modal-padrao .modal-footer .botao-modal-padrao{
+    padding: 10px;
+    text-transform: uppercase;
+    display: flex;
+    background-color: var(--cor-laranja-az);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    justify-content: center;
+    bottom: 10px;
+}
+.modal-padrao-ao .conteudo-modal-padrao .modal-footer .botao-modal-padrao:hover{
+    cursor: pointer;
+    color:var(--cor-laranja-az);
+    background-color: white;
+}
+.modal-padrao-ao .opcao-modal-botao{
+    text-decoration: none;
+}
+.modal-padrao-ao .titulo-modal-geral{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.modal-padrao-ao .conteudo-modal-padrao p{
+    word-break: keep-all;
+    padding: 10px;
+}
+.modal-padrao-ao #botao_editavel_infor,#botao_editavel_direc,#botao_editavel-form,#botao_editavel-conf{
+    background-color: rgb(239, 78, 35);
+}
+.modal-padrao-ao #botao_editavel_infor:hover,#botao_editavel_direc:hover,#botao_editavel-form:hover,#botao_editavel-conf:hover{
+    background-color: white;
+}
+.modal-padrao-ao #botao_cancela_form, .modal-padrao-ao #botao_cancela_direc{
+    background-color: rgb(103,102,104);
+}
+.modal-padrao-ao #botao_editavel:hover{
+    cursor: pointer;
+    background-color: white;
+    color: rgb(239,78,35);
+}
+.modal-padrao-ao #botao_cancela_form:hover, .modal-padrao-ao #botao_cancela_direc:hover,.modal-padrao-ao #botao_cancela_conf:hover{
+    cursor: pointer;
+    background-color: black;
+}
+.modal-padrao-ao .opcao-modal-botao,.botao-modal-padrao{
+    min-width: 100px;
+    max-height: 40px;
+}
+.modal-padrao-ao #mensagem-modalText{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    resize: none;
+    border-radius: 15px;
+    border: solid 2px var(--cor-laranja-az);
+    padding: 10px;
+    word-break: break-all;
+}
+.modal-padrao-ao #conjunto-modal-text-input{
+    margin-top: 15px;
+    justify-content: center;
+}
+.modal-padrao-ao .divisor-modal-text{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.modal-padrao-ao .conteudo-modal-padrao #img-infor{
+    width: 240px;
+    max-width: 180px;
+}
+.titulo-modal-Areatexto{
+    margin-top: 10px;
+}
+@media only screen and (max-width: 768px){                          /*Configurações do Site Responsivo*/
+    .menulateral.closed{
+        width: 80px;
+    }
+    .menulateral.closed .listamenu .logoazmerit{
+        margin-left: -25px;
+    }
+    .menulateral.closed .listamenu .logoazmerit #logoazmerit .path_az{
+        width: 55px;
+    }
+    .menulateral.closed .listamenu .logoazmerit #logoazmerit .path_merit{
+        display: none;
+    }
+    .menulateral.closed .textoicon{
+        opacity: 0;
+        display: none;
+    }
+    .menulateral.closed .listamenu .itemlista .cadastrar .setabaixo,
+    .menulateral.closed .listamenu .itemlista .cadastrar .setabaixo2{
+        display: none;
+    }
+    .menulateral .menuabertomobile{                                  /*Faz o resto da tela ficar escuro*/
+        z-index: 0;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        margin-left: 250px;
+        width: 100vw;
+        background-color: black;
+        height: 100vh;
+        opacity: 0.4;
+        animation: fadeIn 3s;
+    }
+    .menulateral.closed .menuabertomobile{
+        display: none;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+          to { opacity: 0.4; }
+    }
+    .cabecalho{
+        margin-left: 80px;
+        height: 80px;
+    }
+    .cabecalho .user_box .img_user{
+        width: 65px;
+        height: 65px;
+    }
+    .cabecalho .tela_atual{
+        margin-top: 0;
+        max-width: 200px;
+    }
+    .cabecalho .tela_atual span{
+        text-align: justify;
+    }
+    .menulateral .listamenu .itemlista{
+        margin-left: -15px;
+    }
+    .menulateral.closed .listamenu .itemlista{
+        pointer-events: none;
+    }
+    .logout_div .boxlogout .itemlogout{
+        margin-left: 30px;
+    }
+    .menulateral.closed .logout_div .boxlogout .itemlogout .textologout{
+        display: none;
+    }
+    .rodape{
+        left: 25%;
+        padding-right: 20px;
+    }
+    .modal-padrao-ao{                                           /*MODAL*/
+        left: 50px;
+    }
+    .modal-padrao-ao .conteudo-modal-padrao{
+        width: 340px;
+    }
+    .modal-padrao-ao .conteudo-modal-padrao #img-text{
+        width: 100px;
+    }
+}
+
+/*Propriedades da Barra de Rolagem*/
+/*width*/
+::-webkit-scrollbar{
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track{
+    background: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background: var(--cor-laranja-az);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover{
+    background: var(--cor-laranja-az);
+}
+/*
+https://www.codingnepalweb.com/side-menu-bar-with-sub-menu-javascript/
+https://www.youtube.com/watch?v=O9l75KOB2pE
+https://stackoverflow.com/questions/70827887/detect-click-vs-touch-in-javascript
+*/

@@ -1,0 +1,7 @@
+É uma classe que irá fazer uma ponte entre o sistema e o banco de dados
+utilizando PDO.
+
+Irá funcionar como uma 'query builder': O query builder é uma interface
+que ajuda a construir e modificar consultas em um formato estruturado.
+Com o query builder, você pode criar consultas nativamente digitando a
+sintaxe SQL ou interativamente selecionando componentes.

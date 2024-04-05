@@ -1,0 +1,232 @@
+CREATE TABLE public.analise (
+    id_analise SERIAL PRIMARY KEY,
+    data_analise date DEFAULT now(),
+    mensagem text,
+    id_feedback integer,
+    id_carteira integer
+);
+
+	
+CREATE TABLE public.campanha (
+    id_campanha SERIAL PRIMARY KEY,
+    nome_campanha varchar(100) NOT NULL,
+    data_inicio date NOT NULL,
+    data_final date NOT NULL,
+    saldo_distr numeric(20,2),
+    qde_az_por_colaborador numeric(20,2) NOT NULL,
+    status_campanha boolean DEFAULT false
+);
+
+	
+CREATE TABLE public.carteira (
+    id_carteira SERIAL PRIMARY KEY,
+    valor_recebido_campanha numeric(20,2),
+    saldo_doacao_usuario numeric(20,2),
+    saldo_recebido_feedback numeric(20,2) default 0,
+    id_usuario integer,
+    id_campanha integer
+);
+	
+
+CREATE TABLE public.feedback (
+     id_feedback SERIAL PRIMARY KEY,
+    qde_az_enviado numeric(20,2) NOT NULL,
+    data_criacao date DEFAULT now(),
+    data_validacao date,
+    mensagem text NOT NULL,
+    remetente_usuario integer,
+    destinatario_usuario integer,
+    id_status_feedback integer,
+    id_campanha integer
+);
+
+	
+CREATE TABLE public.perfil_usuario (
+    id_perfil_usuario SERIAL PRIMARY KEY,
+    descricao_perfil varchar(50) NOT NULL
+);
+
+	
+CREATE TABLE public.produto (
+    id_produto SERIAL PRIMARY KEY,
+    nome varchar(200) NOT NULL,
+    imagem varchar(250),
+    descricao varchar(250),
+    qde_produto integer,
+    valor_produto numeric(20,2) NOT NULL,
+    id_status_produto integer
+);
+
+	
+CREATE TABLE public.status_feedback (
+    id_status_feedback SERIAL PRIMARY KEY,
+    status varchar(50) NOT NULL
+);
+
+
+	
+CREATE TABLE public.status_produto (
+    id_status_produto SERIAL PRIMARY KEY,
+    disponibilidade boolean NOT NULL,
+    descricao_status_prod varchar(50) NOT NULL
+);
+
+
+	
+CREATE TABLE public.status_usuario (
+    id_status_user SERIAL PRIMARY KEY,
+    status boolean NOT NULL,
+    descricao_status_user varchar(50) NOT NULL
+);
+
+
+CREATE TABLE public.troca_produto (
+    id_troca_produto SERIAL PRIMARY KEY,
+    qde_troca_produto integer NOT NULL,
+    data_troca_prod date DEFAULT now(),
+    id_produto integer,
+    id_carteira integer, 
+    status varchar(50) DEFAULT 'pendente',
+    data_envio date
+);
+
+	
+CREATE TABLE public.usuario (
+    id_usuario SERIAL PRIMARY KEY,
+    nome varchar(150) NOT NULL,
+    email varchar(200) NOT NULL,
+    senha varchar(255) NOT NULL,
+    imagem varchar(255),
+    apelido varchar(50),
+    id_perfil_usuario integer,
+    id_status_user integer,
+    recuperar_senha varchar(255)
+);
+
+
+
+-- CRIAÇÃO DAS TRIGGERS 
+-- TRIGGER PARA CRIAR CARTEIRA APÓS INSERIR UM NOVO USUÁRIO NO BANCO
+
+CREATE OR REPLACE FUNCTION criar_carteira_usuario()
+RETURNS trigger
+AS $$
+	BEGIN
+    		INSERT INTO carteira (id_usuario) VALUES (NEW.id_usuario);
+		RETURN NEW;
+	END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER tr_cria_carteira_usuario
+AFTER INSERT ON usuario
+FOR EACH ROW
+EXECUTE PROCEDURE criar_carteira_usuario();
+
+
+-- TRIGGER PARA ATUALIZAR CARTEIRAS AO CRIAR UMA CAMPANHA
+
+CREATE OR REPLACE FUNCTION atualizar_campanha_e_carteira()
+RETURNS TRIGGER AS $$
+BEGIN
+
+ UPDATE campanha
+    SET saldo_distr = qde_az_por_colaborador * (SELECT COUNT(*) FROM usuario WHERE id_status_user = 1);
+	
+	UPDATE campanha
+    SET status_campanha = false WHERE id_campanha <= (SELECT MAX(id_campanha) - 1 FROM campanha);
+
+    UPDATE carteira
+    SET valor_recebido_campanha = NEW.qde_az_por_colaborador, saldo_doacao_usuario = NEW.qde_az_por_colaborador,
+	saldo_recebido_feedback = 0, id_campanha = NEW.id_campanha
+    WHERE carteira.id_carteira > 0;
+
+    UPDATE feedback SET qde_az_enviado = 0
+    WHERE id_feedback > 0;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER tr_atualiza_campanha_carteira
+AFTER INSERT ON campanha
+FOR EACH ROW
+EXECUTE FUNCTION atualizar_campanha_e_carteira();
+
+
+-- TRIGGER PARA ATUALIZAR O SALDO DA CARTEIRA
+
+CREATE OR REPLACE FUNCTION atualiza_saldo_carteira()
+RETURNS trigger
+AS $$
+	BEGIN
+    	UPDATE carteira 
+		SET saldo_doacao_usuario = saldo_doacao_usuario - new.qde_az_enviado
+		WHERE id_usuario = new.remetente_usuario;
+		
+		UPDATE carteira 
+		SET saldo_recebido_feedback = saldo_recebido_feedback + new.qde_az_enviado
+		WHERE id_usuario = new.destinatario_usuario;
+		
+		RETURN NEW;
+	END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER tr_atualiza_saldo_carteira
+AFTER UPDATE ON feedback
+FOR EACH ROW
+EXECUTE PROCEDURE atualiza_saldo_carteira();
+
+
+-- TRIGGER PARA ATUALIZAR O ESTOQUE DO PRODUTO TROCADO
+
+CREATE OR REPLACE FUNCTION atualiza_estoque_produto()
+RETURNS trigger
+AS $$
+	BEGIN
+    	UPDATE produto SET qde_produto = qde_produto - new.qde_troca_produto 
+		WHERE id_produto = new.id_produto;
+		RETURN NEW;
+	END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER tr_atualiza_estoque_produto
+AFTER INSERT ON troca_produto
+FOR EACH ROW
+EXECUTE PROCEDURE atualiza_estoque_produto();
+
+
+-- INSERTS INICIAIS DO BANCO
+
+INSERT INTO status_produto (id_status_produto, disponibilidade, descricao_status_prod) VALUES 
+(DEFAULT, true,'ATIVO'),
+(DEFAULT, false, 'INATIVO');
+
+INSERT INTO status_usuario (id_status_user, status, descricao_status_user) VALUES 
+(DEFAULT, true,'ATIVO'),
+(DEFAULT, false, 'INATIVO');	
+	
+INSERT INTO status_feedback (id_status_feedback, status) VALUES 
+(DEFAULT, 'APROVADO'),
+(DEFAULT, 'REPROVADO'),
+(DEFAULT, 'Aguardando aprovação');
+
+
+INSERT INTO perfil_usuario (id_perfil_usuario,descricao_perfil) VALUES
+ (DEFAULT,'Administrador'),
+ (DEFAULT,'Gestor'),
+ (DEFAULT,'Colaborador');
+ 
+INSERT INTO usuario (id_usuario, nome,email,senha,imagem,apelido,id_perfil_usuario,id_status_user) VALUES 
+(DEFAULT, 'ADMIN','admin@admin.com','$2y$10$J.akEEIVBpb3cI1QmDaM4uJSbDP09aLumPFSrgk.5C3VMBzfbGQXu','./usuario/img/usuarios/silvania.png','Mestre',1,1);
+
+
+INSERT INTO campanha(
+	id_campanha, nome_campanha, data_inicio, data_final, qde_az_por_colaborador, status_campanha)
+	VALUES (DEFAULT, 'DIA DO COLABORADOR', now(), now(), 1800, true);
+		
+select * from feedback;
+select * from usuario;

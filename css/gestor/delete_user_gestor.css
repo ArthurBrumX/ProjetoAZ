@@ -1,0 +1,75 @@
+.tudo_del{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.tudo_del .titulo_del{
+    color: var(--cor-branca-para-fundos-escuros);
+}
+.tudo_del .caixa_delete{
+    z-index: 0;
+    top: 120px;
+    opacity: 3;
+    width: auto;
+    display: flex;
+    padding: 20px;
+    position: absolute;
+    border-radius: 12px;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 10px 2px 10px;
+    background-color: var(--cor-azul-escuro-para-fundos-site);
+}
+.tudo_del .usuario{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    flex-direction: column;
+}
+.tudo_del .img_usuario{
+    margin-top: 20px;
+    border-radius: 15px;
+    width: 300px;
+    height: 400px;
+    align-items: center;
+}
+.tudo_del .nome_usuario{
+    color: var(--cor-laranja-az);
+}
+.tudo_del .tipo_usuario{
+    margin-top: 10px;
+    color: var(--cor-branca-para-fundos-escuros);
+}
+.tudo_del .botao_del{
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    color: var(--cor-branca-para-fundos-escuros);
+    background-color: var(--cor-laranja-az);
+}
+.tudo_del .botao_del:hover{
+    cursor: pointer;
+    color: var(--cor-laranja-az);
+    background-color: var(--cor-branca-para-fundos-escuros);
+}
+.tudo_del .conj_botoes_delete{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.tudo_del .botao_cancela{
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    color: var(--cor-laranja-az);
+    background-color: var(--cor-branca-para-fundos-escuros);
+    text-decoration: none;
+}
+.tudo_del .botao_cancela:hover{
+    cursor: pointer;
+    background-color: var(--cor-laranja-az);
+    color: var(--cor-branca-para-fundos-escuros);
+}

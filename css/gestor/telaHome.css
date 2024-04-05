@@ -1,0 +1,222 @@
+
+.main_listar_banco{
+    width: 80%;
+    left: 15%;
+    height: 75vh;
+    flex-wrap: wrap;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(217, 217, 217, 0.5);
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 1;
+    gap: 3%;
+    border-radius: 15px;
+    margin-top:5%;
+}
+
+.content_tela_banco{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    
+    
+
+}
+
+.content{
+    position: relative;
+    top: 25%;
+    left: 75vh;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 0% 5% 7% 7%;
+    
+    
+    /* background-color: #FF4242; */
+    width: 90%;
+    height: 200px;
+    left: 50%;
+}
+    /* Config maozinha */
+    .conteiner_Maozinha{
+        display: flex; /*Deixa o item movimentavel*/
+        justify-content: end;
+        margin-top: 1%;
+
+    }
+
+    /* Config Conteiner Cartao */
+    .conteiner_cartao-DDA{
+        display: flex; /*Deixa o item movimentavel*/
+        justify-content: space-between; /*Abre espaço entre eles*/
+        /* background-color: aqua; */
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 5%;
+    }
+
+    .conteiner_cartao-ET #boneco-banco{
+        position: absolute;
+        left:5%;
+        display: flex;
+        height: 300px;
+        bottom: 0;
+
+      
+    }
+
+    
+    /* ------------------------------------------------------------- */
+    /*Config Interna Cartao */
+        .cartao{
+            
+            background-color: #002436;
+            border-radius: 20px; /*Borda Arredondada*/
+            width: 300px;
+            height: 190px;
+            box-shadow: 7px 7px 3px #df6d6d ;
+        }
+
+        /* ----------------------------------------------------------------------------------------------------- */
+        /* configuracao interna do cartao */
+
+                /* Config da Logo "AZMerit" */
+                .logo_az_cartao{
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-top: 4%;
+                    margin-left: 2%;
+                }
+                
+                /* Config Letras Da Logo "AZMerit" */
+                .merit_letra{
+                    text-decoration: none;
+                    font-size: 15px;
+                    color: white;
+                }
+
+                /* Config Da Barra Laranja  */
+                .barra{
+                    margin-left: 150px;
+                    font-size: 10px;
+                    text-decoration: none;
+                    color: #FF4242;
+                }
+                
+                /* Config Da Logo Depois Da Barra */
+                .logo_final{
+                    height: 8px;
+                }
+
+                /* Config Valor Do Cartao */
+                .valor-cartao{
+                    margin-top: 20px; /* Empurra o numero pra baixo */
+                    text-align: center;
+                    font-size: 25px;
+                    color: var(--cor-laranja-az);
+                }
+
+                /* Config Descricao Dos Cartões */
+                .legenda{
+                    margin-top: 60px; /* Pra Descer a Descricao do cartao  */
+                    margin-left: 2%; /* Pra Desencostar a letra da parede  */
+                    color: white;
+                    text-decoration: none;
+                    font-size: 24px;
+                    text-align: center;
+                }
+
+                .logo-cartao{
+                    height: 55%;
+                }
+            /*fim cartao*/
+
+        /* ------------------------------------------------------------- */
+        /* Config Ondinha */
+        .loading-wave {
+            width: 200px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        
+        .loading-bar {
+            width: 20px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #3498db;
+            border-radius: 5px;
+            animation: loading-wave-animation 1s ease-in-out infinite;
+        }
+        
+        .loading-bar:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        
+        .loading-bar:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        
+        .loading-bar:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+        
+        @keyframes loading-wave-animation {
+            0% {
+            height: 10px;
+        }
+        
+            50% {
+            height: 50px;
+        }
+        
+            100% {
+            height: 10px;
+        }
+        }
+/*Configurações do Site Responsivo*/
+@media only screen and (max-width: 768px)
+{
+    .main_listar{
+        display: flex;
+        margin: auto;
+        left: -90%;
+    }
+    .content_tela_banco{       
+        display: flex;
+       
+        
+        height: 100%;
+     
+        
+        
+    
+    }
+    .content{
+        /* position: relative; */
+        /* top: 25%; */
+       
+        transform: translateX(-50%) translateY(-50%);
+        padding: 0% 5% 7% 7%;
+        
+        width: 90%;
+        height: 200px;
+    }
+       
+    .conteiner_cartao-ET #boneco-banco{
+        display: none;
+    }
+
+    .conteiner_cartao-DDA{
+        display: flex; /*Deixa o item movimentavel*/
+        flex-direction: column;
+        gap: 20px;
+        left: -250px;
+    }
+
+}

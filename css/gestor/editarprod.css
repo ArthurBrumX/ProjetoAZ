@@ -1,0 +1,170 @@
+/*TELA CADASTRO PRODUTO*/
+.div-form-editar-produto{
+  width: calc(100% - 250px);
+  height: calc(100% - 100px);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.form-editar-produto{
+  height: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.editProd {
+  height: 550px;
+  width: 450px;
+  z-index: 2; 
+  background: rgb(23, 61, 87);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+.textos{
+  margin-top: 50px;
+}
+/*tela de editar produto*/
+.caixa-input{
+  position: relative;
+  display: flex;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+/* Característica do input */
+.caixa-input .input {
+  font-size: 14px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 90%;
+  border: none;
+  border-bottom: 2px solid rgb(213, 90, 59);
+  background: transparent;
+  font-family: "Tomorrow", sans-serif;
+}
+.caixa-input .input:focus {
+  outline: none;
+}
+/*Nomes das linhas*/
+.caixa-input .label {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Tomorrow", sans-serif;
+  position: absolute;
+  pointer-events: none;
+  
+  display: flex;
+}
+.caixa-input .label-letra {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * 0.05s);
+}
+.caixa-input .input:focus ~ label .label-letra,
+.caixa-input .input:valid ~ label .label-letra {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: rgb(215, 91, 54);
+  text-transform: uppercase;
+}
+
+/* Fim Input com Span Subindo */
+/*botões*/
+.botaop {
+  /* background-color: gold;*/
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 30px;
+}
+.botaop :hover {
+  background-color: rgb(213, 90, 59);
+}
+.btncancelar {
+  font-weight: bold;
+  cursor: pointer;
+  width: 100px;
+  height: 33px;
+  border: none;
+  border-radius: 32px;
+  background: rgb(10, 35, 52);
+  color: white;
+  font-size: 12px;
+  transition: all 0.3s ease-in-out;
+}
+.btncancelar:hover {
+  color: rgb(10, 35, 52);
+  background-color: white;
+}
+#cancelar {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.botaop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  margin-top: 5px;                                                                                                      
+}
+.btncads:hover {
+  background-color: white;
+  color: rgb(215, 91, 54);
+}
+.btncads {
+  font-weight: bold;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 32px;
+  background: rgb(215, 91, 54);
+  color: white;
+  font-size: 12px;
+}
+
+/*foto pré visualização*/
+.foto {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-left: 20px;
+  color: white;
+  margin-top: 5px;
+}
+.pre-view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.sfoto {
+  display: flex;
+  flex-direction: row;
+}
+#output {
+  width: 80px;
+  height: 80px;
+}
+
+@media only screen and (max-width: 768px) {
+  .div-form-cadastrar-produto {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    left: 5%;
+    top: 10%;
+  }
+  .editProd {
+    width: 70%;
+    margin: 0 10px; /* Ajuste a margem conforme necessário */
+  }
+}
